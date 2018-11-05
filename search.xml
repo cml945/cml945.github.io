@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title><![CDATA[第一篇文章]]></title>
+    <url>%2Fpost%2Ffirst_article%2F</url>
+    <content type="text"><![CDATA[博客终于搭建完成了！经过千辛万苦（长达两天的努力），我的博客终于上线了！以后会在这里记录一些科研以及学习的心得。 让我先试着放张图片： 下面放一段代码12str = "Hello world!"print(str) 下面是一个表格 AND true false true true false false false false 1.hexo从零开始到搭建完整2.Hexo下的Markdown语法(GFM)写博客3.Hexo搭建的GitHub博客之优化大全4.Hexo 官网]]></content>
+      <categories>
+        <category>其他</category>
+      </categories>
+  </entry>
+</search>
