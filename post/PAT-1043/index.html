@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="PAT,算法,">
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="Talk is cheap. Show me the code.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="categories">
-<meta property="og:url" content="http://yoursite.com/categories/index.html">
+<meta name="description" content="1043 Is It a Binary Search Tree题目1043 Is It a Binary Search Tree （25 分）A Binary Search Tree (BST) is recursively defined as a binary tree which has the following properties: The left subtree of a node">
+<meta name="keywords" content="PAT,算法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PAT-1043">
+<meta property="og:url" content="http://yoursite.com/post/PAT-1043/index.html">
 <meta property="og:site_name" content="Mars">
-<meta property="og:description" content="Talk is cheap. Show me the code.">
+<meta property="og:description" content="1043 Is It a Binary Search Tree题目1043 Is It a Binary Search Tree （25 分）A Binary Search Tree (BST) is recursively defined as a binary tree which has the following properties: The left subtree of a node">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-05T06:38:30.551Z">
+<meta property="og:updated_time" content="2018-11-16T14:49:02.955Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="categories">
-<meta name="twitter:description" content="Talk is cheap. Show me the code.">
+<meta name="twitter:title" content="PAT-1043">
+<meta name="twitter:description" content="1043 Is It a Binary Search Tree题目1043 Is It a Binary Search Tree （25 分）A Binary Search Tree (BST) is recursively defined as a binary tree which has the following properties: The left subtree of a node">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/categories/">
+  <link rel="canonical" href="http://yoursite.com/post/PAT-1043/">
 
 
 
 
 
-  <title>categories | Mars</title>
+  <title>PAT-1043 | Mars</title>
   
 
 
@@ -262,40 +263,174 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/PAT-1043/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ET">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mars">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">categories</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="category-all-page">
-            <div class="category-all-title">
-                目前共计 2 个分类
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/PAT/">PAT</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/其他/">其他</a><span class="category-list-count">1</span></li></ul>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">PAT-1043</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-16T22:39:18+08:00">
+                2018-11-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/PAT/" itemprop="url" rel="index">
+                    <span itemprop="name">PAT</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h1 id="1043-Is-It-a-Binary-Search-Tree"><a href="#1043-Is-It-a-Binary-Search-Tree" class="headerlink" title="1043 Is It a Binary Search Tree"></a>1043 Is It a Binary Search Tree</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>1043 Is It a Binary Search Tree （25 分）<br>A Binary Search Tree (BST) is recursively defined as a binary tree which has the following properties:</p>
+<p>The left subtree of a node contains only nodes with keys less than the node’s key.<br>The right subtree of a node contains only nodes with keys greater than or equal to the node’s key.<br>Both the left and right subtrees must also be binary search trees.<br>If we swap the left and right subtrees of every node, then the resulting tree is called the Mirror Image of a BST.</p>
+<p>Now given a sequence of integer keys, you are supposed to tell if it is the preorder traversal sequence of a BST or the mirror image of a BST.</p>
+<p>Input Specification:<br>Each input file contains one test case. For each case, the first line contains a positive integer N (≤1000). Then N integer keys are given in the next line. All the numbers in a line are separated by a space.</p>
+<p>Output Specification:<br>For each test case, first print in a line YES if the sequence is the preorder traversal sequence of a BST or the mirror image of a BST, or NO if not. Then if the answer is YES, print in the next line the postorder traversal sequence of that tree. All the numbers in a line must be separated by a space, and there must be no extra space at the end of the line.</p>
+<p>Sample Input 1:<br>7<br>8 6 5 7 10 8 11<br>Sample Output 1:<br>YES<br>5 7 6 8 11 10 8<br>Sample Input 2:<br>7<br>8 10 11 8 6 7 5<br>Sample Output 2:<br>YES<br>11 8 10 7 5 6 8<br>Sample Input 3:<br>7<br>8 6 8 5 10 9 11<br>Sample Output 3:<br>NO</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>一开始又SB的以为preOrder是左中右的访问顺序，结果题目都读不懂。读懂题目之后，就假设是序列是BST，然后来递归的建立这棵树。首先以BST（非镜像），以8 6 5 7 10 8 11为例，首先由于是先序遍历，8就是根，左子树就是右边序列6 5 7 10 8 11中小于根的部分，右子树就是大于等于根的序列。用i从左到右的扫描，到大于等于根的地方停下，j从又往左扫描到小于根的地方停下。如果i+1=j，那么符合BST的条件，继续递归的生成左子树和右子树，否则不满足BST的条件，所有递归都中止。<br>一开始在扫描的时候没有判断扫描的终点，导致一不小心就扫描出了[from,to]的范围，甚至出现段错误。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">Tree</span>;</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> value;</span><br><span class="line">    Tree left,right;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">int</span> seq[<span class="number">1010</span>];</span><br><span class="line"><span class="keyword">int</span> N;</span><br><span class="line"><span class="keyword">bool</span> isBST = <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">bool</span> first = <span class="literal">true</span>;</span><br><span class="line"><span class="function">Tree <span class="title">buildTree</span><span class="params">(<span class="keyword">int</span> from,<span class="keyword">int</span> to)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!isBST) <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">if</span>(from &gt; to) <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">if</span>(from==to) <span class="keyword">return</span> <span class="keyword">new</span> Node&#123;seq[from],<span class="literal">NULL</span>,<span class="literal">NULL</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> i=from,j=to+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(seq[i+<span class="number">1</span>]&lt;seq[from]&amp;&amp;i&lt;=to<span class="number">-1</span>) i++;</span><br><span class="line">    <span class="keyword">while</span>(seq[j<span class="number">-1</span>]&gt;=seq[from]&amp;&amp;j&gt;=from+<span class="number">2</span>) j--;</span><br><span class="line">    <span class="keyword">if</span>(i+<span class="number">1</span>==j)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Node&#123;seq[from],buildTree(from+<span class="number">1</span>,i),buildTree(j,to)&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        isBST = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">Tree <span class="title">buildTreeM</span><span class="params">(<span class="keyword">int</span> from,<span class="keyword">int</span> to)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(!isBST) <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">if</span>(from &gt; to) <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">if</span>(from==to) <span class="keyword">return</span> <span class="keyword">new</span> Node&#123;seq[from],<span class="literal">NULL</span>,<span class="literal">NULL</span>&#125;;</span><br><span class="line">    <span class="keyword">int</span> i=from,j=to+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(seq[i+<span class="number">1</span>]&gt;=seq[from]&amp;&amp;i&lt;=to<span class="number">-1</span>) i++;</span><br><span class="line">    <span class="keyword">while</span>(seq[j<span class="number">-1</span>]&lt;seq[from]&amp;&amp;j&gt;=from+<span class="number">2</span>) j--;</span><br><span class="line">    <span class="keyword">if</span>(i+<span class="number">1</span>==j)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Node&#123;seq[from],buildTreeM(from+<span class="number">1</span>,i),buildTreeM(j,to)&#125;;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span>&#123;</span><br><span class="line">        isBST = <span class="literal">false</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">postOrder</span><span class="params">(Tree t)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(t-&gt;left) postOrder(t-&gt;left);</span><br><span class="line">    <span class="keyword">if</span>(t-&gt;right) postOrder(t-&gt;right);</span><br><span class="line">    <span class="keyword">if</span>(first) first = <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">cout</span> &lt;&lt;<span class="string">" "</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; t-&gt;value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cin</span> &gt;&gt; N;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;N;i++)&#123;</span><br><span class="line">        <span class="built_in">cin</span> &gt;&gt; seq[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(N==<span class="number">0</span>)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"YES\n"</span>;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    Tree t = buildTree(<span class="number">0</span>,N<span class="number">-1</span>);</span><br><span class="line">    <span class="keyword">if</span>(isBST)&#123;</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"YES\n"</span>;</span><br><span class="line">        postOrder(t);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        isBST = <span class="literal">true</span>;</span><br><span class="line">        t = buildTreeM(<span class="number">0</span>,N<span class="number">-1</span>);</span><br><span class="line">        <span class="keyword">if</span>(isBST)&#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">"YES\n"</span>;</span><br><span class="line">            postOrder(t);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="built_in">cout</span> &lt;&lt; <span class="string">"NO\n"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/PAT/" rel="tag"># PAT</a>
+          
+            <a href="/tags/算法/" rel="tag"># 算法</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/post/PAT-1040/" rel="next" title="PAT-1040解题报告">
+                <i class="fa fa-chevron-left"></i> PAT-1040解题报告
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -328,8 +463,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -399,6 +543,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1043-Is-It-a-Binary-Search-Tree"><span class="nav-number">1.</span> <span class="nav-text">1043 Is It a Binary Search Tree</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-number">1.2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
