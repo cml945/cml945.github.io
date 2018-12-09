@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="PAT,算法,">
+  <meta name="keywords" content="PAT,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="1040 Longest Symmetric String题目1040 Longest Symmetric String （25 分）Given a string, you are supposed to output the length of the longest symmetric sub-string. For example, given Is PAT&amp;amp;TAP symmetri">
-<meta name="keywords" content="PAT,算法">
+<meta name="description" content="一周没刷过题了，后天开题答辩还在做PPT，都不太想来考了，没想到竟然满分通过😋还好我来了。记录一下这个历史性的时刻。一开始第一道题就没做出来，看着数量级还挺大，用素数表的方式，发现建表的过程就耗时巨长，后面直接写个函数判断是否为素数，发现还是有问题，烦，跳过先做第二题。第二题一看就发现巨麻烦，写起来果然巨麻烦，花了一个小时，写了估计有一百行，发现只过了第一个case拿了15分，崩溃，仔细检查了一">
+<meta name="keywords" content="PAT">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PAT-1040解题报告">
-<meta property="og:url" content="http://yoursite.com/post/PAT-1040/index.html">
+<meta property="og:title" content="PAT考试顺利通过">
+<meta property="og:url" content="http://yoursite.com/post/PAT_EXAM/index.html">
 <meta property="og:site_name" content="Mars">
-<meta property="og:description" content="1040 Longest Symmetric String题目1040 Longest Symmetric String （25 分）Given a string, you are supposed to output the length of the longest symmetric sub-string. For example, given Is PAT&amp;amp;TAP symmetri">
+<meta property="og:description" content="一周没刷过题了，后天开题答辩还在做PPT，都不太想来考了，没想到竟然满分通过😋还好我来了。记录一下这个历史性的时刻。一开始第一道题就没做出来，看着数量级还挺大，用素数表的方式，发现建表的过程就耗时巨长，后面直接写个函数判断是否为素数，发现还是有问题，烦，跳过先做第二题。第二题一看就发现巨麻烦，写起来果然巨麻烦，花了一个小时，写了估计有一百行，发现只过了第一个case拿了15分，崩溃，仔细检查了一">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-16T14:39:03.064Z">
+<meta property="og:updated_time" content="2018-12-09T14:45:14.662Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PAT-1040解题报告">
-<meta name="twitter:description" content="1040 Longest Symmetric String题目1040 Longest Symmetric String （25 分）Given a string, you are supposed to output the length of the longest symmetric sub-string. For example, given Is PAT&amp;amp;TAP symmetri">
+<meta name="twitter:title" content="PAT考试顺利通过">
+<meta name="twitter:description" content="一周没刷过题了，后天开题答辩还在做PPT，都不太想来考了，没想到竟然满分通过😋还好我来了。记录一下这个历史性的时刻。一开始第一道题就没做出来，看着数量级还挺大，用素数表的方式，发现建表的过程就耗时巨长，后面直接写个函数判断是否为素数，发现还是有问题，烦，跳过先做第二题。第二题一看就发现巨麻烦，写起来果然巨麻烦，花了一个小时，写了估计有一百行，发现只过了第一个case拿了15分，崩溃，仔细检查了一">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/post/PAT-1040/">
+  <link rel="canonical" href="http://yoursite.com/post/PAT_EXAM/">
 
 
 
 
 
-  <title>PAT-1040解题报告 | Mars</title>
+  <title>PAT考试顺利通过 | Mars</title>
   
 
 
@@ -275,7 +275,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/PAT-1040/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/PAT_EXAM/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="ET">
@@ -292,7 +292,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">PAT-1040解题报告</h1>
+          <h1 class="post-title" itemprop="name headline">PAT考试顺利通过</h1>
         
 
         <div class="post-meta">
@@ -304,8 +304,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-15T22:06:41+08:00">
-                2018-11-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-09T22:07:01+08:00">
+                2018-12-09
               </time>
             
 
@@ -364,12 +364,9 @@
       
 
       
-        <h1 id="1040-Longest-Symmetric-String"><a href="#1040-Longest-Symmetric-String" class="headerlink" title="1040 Longest Symmetric String"></a>1040 Longest Symmetric String</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>1040 Longest Symmetric String （25 分）<br>Given a string, you are supposed to output the length of the longest symmetric sub-string. For example, given Is PAT&amp;TAP symmetric?, the longest symmetric sub-string is s PAT&amp;TAP s, hence you must output 11.</p>
-<p>Input Specification:<br>Each input file contains one test case which gives a non-empty string of length no more than 1000.</p>
-<p>Output Specification:<br>For each test case, simply print the maximum length in a line.</p>
-<p>Sample Input:<br>Is PAT&amp;TAP symmetric?<br>Sample Output:<br>11</p>
-<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>第一次做动态规划的题目……参照《算法笔记》中动态规划的内容。bool dp[i]<a href="i&lt;j">j</a>用来记录从i到j的子串是否为回文字符串。<br>状态转移方程也很简单：dp[i][j] = dp[i-1][j-1] &amp;&amp; s[i] == s[j]。<br>问题是如何从边界出发计算整个数组，采用的方法是先初始化长度为1和2的子串，然后从3开始计算，一直计算完整个字符串。<br>字符串长度为1的时候，初始化长度为2的字串会读取到’\0’因而不会产生错误。</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> dp[<span class="number">1010</span>][<span class="number">1010</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> maxLen = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">char</span> s[<span class="number">1010</span>];</span><br><span class="line">    <span class="built_in">cin</span>.getline(s,<span class="number">1010</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(s[len++]!=<span class="string">'\0'</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len;i++)&#123;</span><br><span class="line">        dp[i][i] = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len<span class="number">-1</span>;i++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(s[i]==s[i+<span class="number">1</span>])&#123;</span><br><span class="line">            dp[i][i+<span class="number">1</span>] = <span class="literal">true</span>;</span><br><span class="line">            maxLen = <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> L = <span class="number">3</span>;L&lt;=len;L++)&#123;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;len-L+<span class="number">1</span>;i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(dp[i+<span class="number">1</span>][i+L<span class="number">-2</span>]==<span class="literal">true</span>&amp;&amp;s[i]==s[i+L<span class="number">-1</span>])&#123;</span><br><span class="line">                dp[i][i+L<span class="number">-1</span>] = <span class="literal">true</span>;</span><br><span class="line">                maxLen = L;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; maxLen;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <p>一周没刷过题了，后天开题答辩还在做PPT，都不太想来考了，没想到竟然满分通过😋还好我来了。<br>记录一下这个历史性的时刻。<br>一开始第一道题就没做出来，看着数量级还挺大，用素数表的方式，发现建表的过程就耗时巨长，后面直接写个函数判断是否为素数，发现还是有问题，烦，跳过先做第二题。<br>第二题一看就发现巨麻烦，写起来果然巨麻烦，花了一个小时，写了估计有一百行，发现只过了第一个case拿了15分，崩溃，仔细检查了一下，发现个小错误，多了1分，又发现个小错误，又多了2分，烦，接着跳。看了一下第二题的通过率巨低，只有百分之三四的样子。想到一个多小时过去了，只拿了十几分，凉凉。<br>第三题，就是个简单的图的遍历，直接递归DFS做的，一次AC。<br>第四题，树的DFS，也是超简单的题目，毫无压力的AC了。<br>回到第一题，重新写。直接写个函数判断是否为素数，然后逐一判断就好，忘了输出前导0错了两个case，改一下就通过了。<br>现在只剩下了巨复杂第二题，看了一下排名，九十六分排在五十几，第二题通过的一共也就五十几个人，还剩一个小时，心里还是有点慌的。改了几个可能的输出格式的问题，发现没用。再一看，原来比较的函数由于结构体的字段太多漏比较了一项，赶紧改掉，提交，AC！<br>看了一下排名第一，那就提前四十五分钟交卷走人~</p>
+<p>PS.考完在外面冻了一个小时，然后说证书还有问题，然后又等了大半个小时，忍无可忍的走了……都不让考完拿个证书装个逼真是不爽。</p>
+
       
     </div>
     
@@ -388,8 +385,6 @@
           
             <a href="/tags/PAT/" rel="tag"># PAT</a>
           
-            <a href="/tags/算法/" rel="tag"># 算法</a>
-          
         </div>
       
 
@@ -401,8 +396,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/post/PAT_1039/" rel="next" title="PAT-1039解题报告">
-                <i class="fa fa-chevron-left"></i> PAT-1039解题报告
+              <a href="/post/PAT_1104_1107/" rel="next" title="PAT-1104~1107解题报告">
+                <i class="fa fa-chevron-left"></i> PAT-1104~1107解题报告
               </a>
             
           </div>
@@ -410,10 +405,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/post/PAT-1043/" rel="prev" title="PAT-1043解题报告">
-                PAT-1043解题报告 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -465,17 +456,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -545,22 +527,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1040-Longest-Symmetric-String"><span class="nav-number">1.</span> <span class="nav-text">1040 Longest Symmetric String</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-number">1.1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-number">1.2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">1.3.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
