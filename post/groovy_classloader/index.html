@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Java,JVM,类加载器,Class Loader,">
 
 
 
@@ -79,16 +79,20 @@
 
 
 
-<meta name="description" content="Talk is cheap. Show me the code.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Mars">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+<meta name="description" content="Groovy中三个主要类加载器实习的时候用到了Groovy脚本，顺便学习了一下Groovy的类加载器以及类加载机制。  一、RootLoader管理了Groovy的classpath，负责加载Groovy及其依赖的第三方库中的类，它不是使用双亲委派模型。RootLoader先尝试加载类，如果加载不到，再委派给parent加载，所以即使parent已经载入了GroovyStarter，RootLoa">
+<meta name="keywords" content="Java,JVM,类加载器,Class Loader">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Groovy中三个主要的类加载器">
+<meta property="og:url" content="http://yoursite.com/post/groovy_classloader/index.html">
 <meta property="og:site_name" content="Mars">
-<meta property="og:description" content="Talk is cheap. Show me the code.">
+<meta property="og:description" content="Groovy中三个主要类加载器实习的时候用到了Groovy脚本，顺便学习了一下Groovy的类加载器以及类加载机制。  一、RootLoader管理了Groovy的classpath，负责加载Groovy及其依赖的第三方库中的类，它不是使用双亲委派模型。RootLoader先尝试加载类，如果加载不到，再委派给parent加载，所以即使parent已经载入了GroovyStarter，RootLoa">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/post/groovy_classloader/groovy_class_loader.png">
+<meta property="og:updated_time" content="2019-10-08T13:44:30.789Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mars">
-<meta name="twitter:description" content="Talk is cheap. Show me the code.">
+<meta name="twitter:title" content="Groovy中三个主要的类加载器">
+<meta name="twitter:description" content="Groovy中三个主要类加载器实习的时候用到了Groovy脚本，顺便学习了一下Groovy的类加载器以及类加载机制。  一、RootLoader管理了Groovy的classpath，负责加载Groovy及其依赖的第三方库中的类，它不是使用双亲委派模型。RootLoader先尝试加载类，如果加载不到，再委派给parent加载，所以即使parent已经载入了GroovyStarter，RootLoa">
+<meta name="twitter:image" content="http://yoursite.com/post/groovy_classloader/groovy_class_loader.png">
 
 
 
@@ -118,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/">
+  <link rel="canonical" href="http://yoursite.com/post/groovy_classloader/">
 
 
 
 
 
-  <title>归档 | Mars</title>
+  <title>Groovy中三个主要的类加载器 | Mars</title>
   
 
 
@@ -143,7 +147,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -259,396 +263,189 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
 
-      <span class="archive-page-counter">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/post/groovy_classloader/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ET">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Mars">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">Groovy中三个主要的类加载器</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-08T17:12:14+08:00">
+                2019-10-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 19 篇日志。 继续努力。
-      </span>
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
 
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/java8_optional/" itemprop="url">
-              
-                <span itemprop="name">函数式编程之用于解决NPE的Optional类</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-10-09T11:14:06+08:00" content="2019-10-09">
-          10-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/groovy_classloader/" itemprop="url">
-              
-                <span itemprop="name">Groovy中三个主要的类加载器</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-10-08T17:12:14+08:00" content="2019-10-08">
-          10-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
+            
+          
 
-        
+          
+          
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/PAT_EXAM/" itemprop="url">
-              
-                <span itemprop="name">PAT考试顺利通过</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-12-09T22:07:01+08:00" content="2018-12-09">
-          12-09
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+        </div>
+      </header>
+    
 
-
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/PAT_1104_1107/" itemprop="url">
-              
-                <span itemprop="name">PAT-1104~1107解题报告</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-12-02T15:03:39+08:00" content="2018-12-02">
-          12-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/PAT_1085/" itemprop="url">
-              
-                <span itemprop="name">PAT-1085解题报告（二分法）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-12-02T10:38:18+08:00" content="2018-12-02">
-          12-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <h1 id="Groovy中三个主要类加载器"><a href="#Groovy中三个主要类加载器" class="headerlink" title="Groovy中三个主要类加载器"></a>Groovy中三个主要类加载器</h1><p>实习的时候用到了Groovy脚本，顺便学习了一下Groovy的类加载器以及类加载机制。</p>
+<p><img src="/post/groovy_classloader/groovy_class_loader.png" alt="类加载器继承树]"></p>
+<h2 id="一、RootLoader"><a href="#一、RootLoader" class="headerlink" title="一、RootLoader"></a>一、RootLoader</h2><p>管理了Groovy的classpath，负责加载Groovy及其依赖的第三方库中的类，它不是使用双亲委派模型。<br>RootLoader先尝试加载类，如果加载不到，再委派给parent加载，所以即使parent已经载入了GroovyStarter，RootLoader还会再加载一次。<br>为什么要这样做的？道理很简单。在前文中，我一再提醒大家，Java的classpath中只包含了Groovy的jar包，而不包含Groovy依赖的第三方jar包，而Groovy的classpath则包含了Groovy以及其依赖的所有第三方jar包。如果RootLoader使用双亲委派模型，那么Groovy的jar包中的类就会由System ClassLoader加载，当解析Groovy的类时，需要加载第三方的jar包，这时System ClassLoader并不知道从哪里加载，导致找不到类。因此RootLoader并没有使用双亲委派模型。 </p>
+<p>可能你有疑问：为什么不把这些jar包都加入Java的classpath中？这样不就不会有这个问题了吗？确实如此，但是Groovy可以通过多种方式更灵活的往自己的classpath中添加路径（你甚至可以通过代码往RootLoader的classpath中添加路径），而Java的classpath只能通过命令行添加，因此就有了RootLoader这样的设计。 </p>
+<h2 id="二、GroovyClassLoader："><a href="#二、GroovyClassLoader：" class="headerlink" title="二、GroovyClassLoader："></a>二、GroovyClassLoader：</h2><p>负责在运行时编译groovy源代码为Class的工作，从而使Groovy实现了将groovy源代码动态加载为Class的功能。</p>
+<h2 id="三、GroovyClassLoader-InnerLoader："><a href="#三、GroovyClassLoader-InnerLoader：" class="headerlink" title="三、GroovyClassLoader.InnerLoader："></a>三、GroovyClassLoader.InnerLoader：</h2><p>Groovy脚本类的直接ClassLoader，它将加载工作委派给GroovyClassLoader，它的存在是为了支持不同源码里使用相同的类名，以及加载的类能顺利被GC。<br>由于一个ClassLoader对于同一个名字的类只能加载一次，如果都由GroovyClassLoader加载，那么当一个脚本里定义了C这个类之后，另外一个脚本再定义一个C类的话，GroovyClassLoader就无法加载了。<br>由于当一个类的ClassLoader被GC之后，这个类才能被GC<sup>2</sup>，如果由GroovyClassLoader加载所有的类，那么只有当GroovyClassLoader被GC了，所有这些类才能被GC，而如果用InnerLoader的话，由于编译完源代码之后，已经没有对它的外部引用，除了它加载的类，所以只要它加载的类没有被引用之后，它以及它加载的类就都可以被GC了。</p>
+<h2 id="四、JVM的类卸载机制3"><a href="#四、JVM的类卸载机制3" class="headerlink" title="四、JVM的类卸载机制3"></a>四、JVM的类卸载机制<sup>3</sup></h2><p>顺便回顾一下JVM的类卸载机制。<br>在类加载器的内部实现中，用一个Java集合来存放所加载类的引用。<br>另一方面，一个Class对象总是会引用它的类加载器。调用Class对象的getClassLoader()方法，就能获得它的类加载器。<br>由此可见，Class实例和加载它的加载器之间为双向关联关系。<br>因此，JVM中的Class满足以下三个条件时才能被GC回收，即卸载：<br>1.类的所有实例都被GC<br>2.加载该类的ClassLoader被GC<br>3.java.lang.Class对象没有在任何地方被引用，即无法通过反射访问该类<br>（JVM会始终引用自带的加载器，即Bootstrap Classloader, Extension Classloader, Application Classloader，所以由他们所加载的类在JVM的生命周期中不会被卸载）</p>
+<p>参考资料：</p>
+<blockquote>
+<p><a href="http://www.blogjava.net/johnnyjian/archive/2013/04/14/397823.html" target="_blank" rel="noopener">1.Groovy的ClassLoader体系</a><br><a href="https://www.cnblogs.com/aspirant/p/7200523.html" target="_blank" rel="noopener">2.Java类加载机制</a><br><a href="https://www.cnblogs.com/mengdd/p/3594608.html" target="_blank" rel="noopener">3.类的卸载机制</a></p>
+</blockquote>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/PAT_1074/" itemprop="url">
-              
-                <span itemprop="name">PAT-1074解题报告（模拟链表）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-11-30T16:24:06+08:00" content="2018-11-30">
-          11-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/PAT_1072/" itemprop="url">
-              
-                <span itemprop="name">PAT-1072解题报告（图，Dijkstra算法）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-11-30T10:34:45+08:00" content="2018-11-30">
-          11-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/PAT_1067/" itemprop="url">
-              
-                <span itemprop="name">PAT-1067解题报告</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-11-29T10:27:31+08:00" content="2018-11-29">
-          11-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/PAT_1060/" itemprop="url">
-              
-                <span itemprop="name">PAT-1060解题报告</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-11-27T20:47:25+08:00" content="2018-11-27">
-          11-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/post/PAT_1052/" itemprop="url">
-              
-                <span itemprop="name">PAT-1052解题报告</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-11-22T15:57:49+08:00" content="2018-11-22">
-          11-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+            <a href="/tags/JVM/" rel="tag"># JVM</a>
+          
+            <a href="/tags/类加载器/" rel="tag"># 类加载器</a>
+          
+            <a href="/tags/Class-Loader/" rel="tag"># Class Loader</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/post/PAT_EXAM/" rel="next" title="PAT考试顺利通过">
+                <i class="fa fa-chevron-left"></i> PAT考试顺利通过
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/post/java8_optional/" rel="prev" title="函数式编程之用于解决NPE的Optional类">
+                函数式编程之用于解决NPE的Optional类 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -656,6 +453,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -676,8 +477,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -747,6 +557,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Groovy中三个主要类加载器"><span class="nav-number">1.</span> <span class="nav-text">Groovy中三个主要类加载器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、RootLoader"><span class="nav-number">1.1.</span> <span class="nav-text">一、RootLoader</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、GroovyClassLoader："><span class="nav-number">1.2.</span> <span class="nav-text">二、GroovyClassLoader：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、GroovyClassLoader-InnerLoader："><span class="nav-number">1.3.</span> <span class="nav-text">三、GroovyClassLoader.InnerLoader：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、JVM的类卸载机制3"><span class="nav-number">1.4.</span> <span class="nav-text">四、JVM的类卸载机制3</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -881,6 +707,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
