@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Java,Optional,Funtional,">
+  <meta name="keywords" content="Java,Optional,Functional,">
 
 
 
@@ -79,21 +79,21 @@
 
 
 
-<meta name="description" content="函数式编程之用于解决NPE的Optional类实习的时候有个项目是要调用飞猪提供的POI接口，返回的对象一层套一层，各个字段都可能为空，如果不用Optional类的话，各种if(xx==null)要写到疯了。用了Optional之后写起来相当的爽，不过问题就是debug变得稍微有点复杂。 一、API介绍：1.1 Optional的构建方法：empty() 返回一个value=null的Option">
-<meta name="keywords" content="Java,Optional,Funtional">
+<meta name="description" content="实习的时候有个项目是要调用飞猪提供的POI接口，返回的对象一层套一层，各个字段都可能为空，如果不用Optional类的话，各种if(xx==null)要写到疯了,还会稍有不慎就NPE。用了Optional之后写起来相当的爽，不过问题就是debug变得稍微有点复杂。 一、API介绍：1.1 Optional的构建方法：empty() 返回一个value=null的Optional对象of(T val">
+<meta name="keywords" content="Java,Optional,Functional">
 <meta property="og:type" content="article">
 <meta property="og:title" content="函数式编程之用于解决NPE的Optional类">
 <meta property="og:url" content="http://yoursite.com/post/java8_optional/index.html">
 <meta property="og:site_name" content="Mars">
-<meta property="og:description" content="函数式编程之用于解决NPE的Optional类实习的时候有个项目是要调用飞猪提供的POI接口，返回的对象一层套一层，各个字段都可能为空，如果不用Optional类的话，各种if(xx==null)要写到疯了。用了Optional之后写起来相当的爽，不过问题就是debug变得稍微有点复杂。 一、API介绍：1.1 Optional的构建方法：empty() 返回一个value=null的Option">
+<meta property="og:description" content="实习的时候有个项目是要调用飞猪提供的POI接口，返回的对象一层套一层，各个字段都可能为空，如果不用Optional类的话，各种if(xx==null)要写到疯了,还会稍有不慎就NPE。用了Optional之后写起来相当的爽，不过问题就是debug变得稍微有点复杂。 一、API介绍：1.1 Optional的构建方法：empty() 返回一个value=null的Optional对象of(T val">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/post/java8_optional/2.1.1.png">
 <meta property="og:image" content="http://yoursite.com/post/java8_optional/2.2.1.png">
 <meta property="og:image" content="http://yoursite.com/post/java8_optional/2.2.2.png">
-<meta property="og:updated_time" content="2019-10-09T03:24:56.470Z">
+<meta property="og:updated_time" content="2019-10-09T03:32:46.013Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="函数式编程之用于解决NPE的Optional类">
-<meta name="twitter:description" content="函数式编程之用于解决NPE的Optional类实习的时候有个项目是要调用飞猪提供的POI接口，返回的对象一层套一层，各个字段都可能为空，如果不用Optional类的话，各种if(xx==null)要写到疯了。用了Optional之后写起来相当的爽，不过问题就是debug变得稍微有点复杂。 一、API介绍：1.1 Optional的构建方法：empty() 返回一个value=null的Option">
+<meta name="twitter:description" content="实习的时候有个项目是要调用飞猪提供的POI接口，返回的对象一层套一层，各个字段都可能为空，如果不用Optional类的话，各种if(xx==null)要写到疯了,还会稍有不慎就NPE。用了Optional之后写起来相当的爽，不过问题就是debug变得稍微有点复杂。 一、API介绍：1.1 Optional的构建方法：empty() 返回一个value=null的Optional对象of(T val">
 <meta name="twitter:image" content="http://yoursite.com/post/java8_optional/2.1.1.png">
 
 
@@ -368,7 +368,7 @@
       
 
       
-        <h1 id="函数式编程之用于解决NPE的Optional类"><a href="#函数式编程之用于解决NPE的Optional类" class="headerlink" title="函数式编程之用于解决NPE的Optional类"></a>函数式编程之用于解决NPE的Optional类</h1><p>实习的时候有个项目是要调用飞猪提供的POI接口，返回的对象一层套一层，各个字段都可能为空，如果不用Optional类的话，各种if(xx==null)要写到疯了。用了Optional之后写起来相当的爽，不过问题就是debug变得稍微有点复杂。</p>
+        <p>实习的时候有个项目是要调用飞猪提供的POI接口，返回的对象一层套一层，各个字段都可能为空，如果不用Optional类的话，各种if(xx==null)要写到疯了,还会稍有不慎就NPE。用了Optional之后写起来相当的爽，不过问题就是debug变得稍微有点复杂。</p>
 <h2 id="一、API介绍："><a href="#一、API介绍：" class="headerlink" title="一、API介绍："></a>一、API介绍：</h2><h3 id="1-1-Optional的构建方法："><a href="#1-1-Optional的构建方法：" class="headerlink" title="1.1 Optional的构建方法："></a>1.1 Optional的构建方法：</h3><p>empty() 返回一个value=null的Optional对象<br>of(T value) 返回this.value=value的对象，如果value=null则抛出NPE。<br>ofNullable(T value) 返回this.value=value的对象，如果value=null则返回empty()。</p>
 <h3 id="1-2-当value-null进行调用的方法"><a href="#1-2-当value-null进行调用的方法" class="headerlink" title="1.2 当value=null进行调用的方法"></a>1.2 当value=null进行调用的方法</h3><p>当value!=null时下面三个方法都返回value。<br>orElse(T other)当value=null时返回other<br>orElseGet(Supplier&lt;? extends T&gt; other)当value=null时调用other并返回其返回值。<br>orElseThrow(Supplier&lt;? extends X&gt; exceptionSupplier)当value=null时调用exceptionSupplier并抛出返回的异常。<br>注意：orElse(create())和orElseGet(()-&gt;create())的区别，当value=null时，前者中的create()会被执行，而后者不会。这应该是Java的运行机制决定的，create()执行之后才能给orElse函数传入对应的参数，而orElseGet传入的是一个匿名内部类，不需要执行create()方法就能传入参数。</p>
 <h3 id="1-3-Present"><a href="#1-3-Present" class="headerlink" title="1.3 Present"></a>1.3 Present</h3><p>boolen isPresent()是否有值(value!=null)<br>void ifPresent(Consumer&lt;? super T&gt; consumer) 如果有值则执行consumer.accept(value)</p>
@@ -396,7 +396,7 @@
           
             <a href="/tags/Optional/" rel="tag"># Optional</a>
           
-            <a href="/tags/Funtional/" rel="tag"># Funtional</a>
+            <a href="/tags/Functional/" rel="tag"># Functional</a>
           
         </div>
       
@@ -418,6 +418,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/post/java8_stream/" rel="prev" title="函数式编程之Stream">
+                函数式编程之Stream <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -494,7 +498,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -559,7 +563,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#函数式编程之用于解决NPE的Optional类"><span class="nav-number">1.</span> <span class="nav-text">函数式编程之用于解决NPE的Optional类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、API介绍："><span class="nav-number">1.1.</span> <span class="nav-text">一、API介绍：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-Optional的构建方法："><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1 Optional的构建方法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-当value-null进行调用的方法"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.2 当value=null进行调用的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-Present"><span class="nav-number">1.1.3.</span> <span class="nav-text">1.3 Present</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-Optional-filter-Predicate-lt-super-T-gt-predicate"><span class="nav-number">1.1.4.</span> <span class="nav-text">1.4 Optional filter(Predicate&lt;? super T&gt; predicate)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-map和flatMap"><span class="nav-number">1.1.5.</span> <span class="nav-text">1.5 map和flatMap</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、优雅的用法："><span class="nav-number">1.2.</span> <span class="nav-text">二、优雅的用法：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-常规写法与Optional写法对比"><span class="nav-number">1.2.1.</span> <span class="nav-text">2.1 常规写法与Optional写法对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-filter和map的用法"><span class="nav-number">1.2.2.</span> <span class="nav-text">2.2 filter和map的用法</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、API介绍："><span class="nav-number">1.</span> <span class="nav-text">一、API介绍：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-Optional的构建方法："><span class="nav-number">1.1.</span> <span class="nav-text">1.1 Optional的构建方法：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-当value-null进行调用的方法"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 当value=null进行调用的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-Present"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 Present</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-Optional-filter-Predicate-lt-super-T-gt-predicate"><span class="nav-number">1.4.</span> <span class="nav-text">1.4 Optional filter(Predicate&lt;? super T&gt; predicate)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-5-map和flatMap"><span class="nav-number">1.5.</span> <span class="nav-text">1.5 map和flatMap</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、优雅的用法："><span class="nav-number">2.</span> <span class="nav-text">二、优雅的用法：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-常规写法与Optional写法对比"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 常规写法与Optional写法对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-filter和map的用法"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 filter和map的用法</span></a></li></ol></li></ol></div>
             
 
           </div>

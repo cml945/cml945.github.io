@@ -1,22 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[函数式编程之用于解决NPE的Optional类]]></title>
-    <url>%2Fpost%2Fjava8_optional%2F</url>
-    <content type="text"><![CDATA[函数式编程之用于解决NPE的Optional类实习的时候有个项目是要调用飞猪提供的POI接口，返回的对象一层套一层，各个字段都可能为空，如果不用Optional类的话，各种if(xx==null)要写到疯了。用了Optional之后写起来相当的爽，不过问题就是debug变得稍微有点复杂。 一、API介绍：1.1 Optional的构建方法：empty() 返回一个value=null的Optional对象of(T value) 返回this.value=value的对象，如果value=null则抛出NPE。ofNullable(T value) 返回this.value=value的对象，如果value=null则返回empty()。 1.2 当value=null进行调用的方法当value!=null时下面三个方法都返回value。orElse(T other)当value=null时返回otherorElseGet(Supplier&lt;? extends T&gt; other)当value=null时调用other并返回其返回值。orElseThrow(Supplier&lt;? extends X&gt; exceptionSupplier)当value=null时调用exceptionSupplier并抛出返回的异常。注意：orElse(create())和orElseGet(()-&gt;create())的区别，当value=null时，前者中的create()会被执行，而后者不会。这应该是Java的运行机制决定的，create()执行之后才能给orElse函数传入对应的参数，而orElseGet传入的是一个匿名内部类，不需要执行create()方法就能传入参数。 1.3 Presentboolen isPresent()是否有值(value!=null)void ifPresent(Consumer&lt;? super T&gt; consumer) 如果有值则执行consumer.accept(value) 1.4 Optional filter(Predicate&lt;? super T&gt; predicate)对Optional进行过滤，即——如果value非空，并且predicate.test(value)==true，则返回包含value的Optional，否则返回Optional.empty()。 1.5 map和flatMap二、优雅的用法：2.1 常规写法与Optional写法对比IDEA还会自动提示每一步返回的类型！ 2.2 filter和map的用法]]></content>
+    <title><![CDATA[函数式编程之Stream]]></title>
+    <url>%2Fpost%2Fjava8_stream%2F</url>
+    <content type="text"><![CDATA[1.什么是StreamStream 作为 Java 8 的一大亮点，它与 java.io 包里的 InputStream 和 OutputStream 是完全不同的概念。Java 8 中的 Stream 是对集合（Collection）对象功能的增强，它专注于对集合对象进行各种非常便利、高效的聚合操作（aggregate operation），或者大批量数据操作 (bulk data operation)。Stream API 借助于同样新出现的 Lambda 表达式，极大的提高编程效率和程序可读性。同时它提供串行和并行两种模式进行汇聚操作，并发模式能够充分利用多核处理器的优势，使用 fork/join 并行方式来拆分任务和加速处理过程。通常编写并行代码很难而且容易出错, 但使用 Stream API 无需编写一行多线程的代码，就可以很方便地写出高性能的并发程序。所以说，Java 8 中首次出现的 java.util.stream 是一个函数式语言+多核时代综合影响的产物。 2.Stream的两种操作类型2.1 Intermediate一个流可以后面跟随零个或多个 intermediate 操作。其目的主要是打开流，做出某种程度的数据映射/过滤，然后返回一个新的流，交给下一个操作使用。这类操作都是惰性化的（lazy），就是说，仅仅调用到这类方法，并没有真正开始流的遍历。 常见的操作有：map (mapToInt, flatMap 等)、 filter、 distinct、 sorted、 peek、 limit、 skip、 parallel、 sequential、 unordered 2.2 Terminal一个流只能有一个 terminal 操作，当这个操作执行后，流就被使用“光”了，无法再被操作。所以这必定是流的最后一个操作。Terminal 操作的执行，才会真正开始流的遍历，并且会生成一个结果，或者一个 side effect。常见的操作有：forEach、 forEachOrdered、 toArray、 reduce、 collect、 min、 max、 count、 anyMatch、 allMatch、 noneMatch、 findFirst、 findAny、 iterator 3.例子3.1 3.2需求：123int[] arr = &#123;3,4,5,6,3,2,3&#125;;//统计出每个数字的个数 返回一个 map&#123;3:3,4:1,2:1,5:1,6:1&#125; 实现：1Arrays.stream(arr).boxed().collect(Collectors.toMap(i-&gt;i, i-&gt;1,(x, y)-&gt;x+y)) 参考资料： Java 8 中的 Streams API 详解]]></content>
       <categories>
         <category>Java</category>
       </categories>
       <tags>
         <tag>Java</tag>
         <tag>Optional</tag>
-        <tag>Funtional</tag>
+        <tag>Functional</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[函数式编程之用于解决NPE的Optional类]]></title>
+    <url>%2Fpost%2Fjava8_optional%2F</url>
+    <content type="text"><![CDATA[实习的时候有个项目是要调用飞猪提供的POI接口，返回的对象一层套一层，各个字段都可能为空，如果不用Optional类的话，各种if(xx==null)要写到疯了,还会稍有不慎就NPE。用了Optional之后写起来相当的爽，不过问题就是debug变得稍微有点复杂。 一、API介绍：1.1 Optional的构建方法：empty() 返回一个value=null的Optional对象of(T value) 返回this.value=value的对象，如果value=null则抛出NPE。ofNullable(T value) 返回this.value=value的对象，如果value=null则返回empty()。 1.2 当value=null进行调用的方法当value!=null时下面三个方法都返回value。orElse(T other)当value=null时返回otherorElseGet(Supplier&lt;? extends T&gt; other)当value=null时调用other并返回其返回值。orElseThrow(Supplier&lt;? extends X&gt; exceptionSupplier)当value=null时调用exceptionSupplier并抛出返回的异常。注意：orElse(create())和orElseGet(()-&gt;create())的区别，当value=null时，前者中的create()会被执行，而后者不会。这应该是Java的运行机制决定的，create()执行之后才能给orElse函数传入对应的参数，而orElseGet传入的是一个匿名内部类，不需要执行create()方法就能传入参数。 1.3 Presentboolen isPresent()是否有值(value!=null)void ifPresent(Consumer&lt;? super T&gt; consumer) 如果有值则执行consumer.accept(value) 1.4 Optional filter(Predicate&lt;? super T&gt; predicate)对Optional进行过滤，即——如果value非空，并且predicate.test(value)==true，则返回包含value的Optional，否则返回Optional.empty()。 1.5 map和flatMap二、优雅的用法：2.1 常规写法与Optional写法对比IDEA还会自动提示每一步返回的类型！ 2.2 filter和map的用法]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>Optional</tag>
+        <tag>Functional</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[Groovy中三个主要的类加载器]]></title>
     <url>%2Fpost%2Fgroovy_classloader%2F</url>
-    <content type="text"><![CDATA[Groovy中三个主要类加载器实习的时候用到了Groovy脚本，顺便学习了一下Groovy的类加载器以及类加载机制。 一、RootLoader管理了Groovy的classpath，负责加载Groovy及其依赖的第三方库中的类，它不是使用双亲委派模型。RootLoader先尝试加载类，如果加载不到，再委派给parent加载，所以即使parent已经载入了GroovyStarter，RootLoader还会再加载一次。为什么要这样做的？道理很简单。在前文中，我一再提醒大家，Java的classpath中只包含了Groovy的jar包，而不包含Groovy依赖的第三方jar包，而Groovy的classpath则包含了Groovy以及其依赖的所有第三方jar包。如果RootLoader使用双亲委派模型，那么Groovy的jar包中的类就会由System ClassLoader加载，当解析Groovy的类时，需要加载第三方的jar包，这时System ClassLoader并不知道从哪里加载，导致找不到类。因此RootLoader并没有使用双亲委派模型。 可能你有疑问：为什么不把这些jar包都加入Java的classpath中？这样不就不会有这个问题了吗？确实如此，但是Groovy可以通过多种方式更灵活的往自己的classpath中添加路径（你甚至可以通过代码往RootLoader的classpath中添加路径），而Java的classpath只能通过命令行添加，因此就有了RootLoader这样的设计。 二、GroovyClassLoader：负责在运行时编译groovy源代码为Class的工作，从而使Groovy实现了将groovy源代码动态加载为Class的功能。 三、GroovyClassLoader.InnerLoader：Groovy脚本类的直接ClassLoader，它将加载工作委派给GroovyClassLoader，它的存在是为了支持不同源码里使用相同的类名，以及加载的类能顺利被GC。由于一个ClassLoader对于同一个名字的类只能加载一次，如果都由GroovyClassLoader加载，那么当一个脚本里定义了C这个类之后，另外一个脚本再定义一个C类的话，GroovyClassLoader就无法加载了。由于当一个类的ClassLoader被GC之后，这个类才能被GC2，如果由GroovyClassLoader加载所有的类，那么只有当GroovyClassLoader被GC了，所有这些类才能被GC，而如果用InnerLoader的话，由于编译完源代码之后，已经没有对它的外部引用，除了它加载的类，所以只要它加载的类没有被引用之后，它以及它加载的类就都可以被GC了。 四、JVM的类卸载机制3顺便回顾一下JVM的类卸载机制。在类加载器的内部实现中，用一个Java集合来存放所加载类的引用。另一方面，一个Class对象总是会引用它的类加载器。调用Class对象的getClassLoader()方法，就能获得它的类加载器。由此可见，Class实例和加载它的加载器之间为双向关联关系。因此，JVM中的Class满足以下三个条件时才能被GC回收，即卸载：1.类的所有实例都被GC2.加载该类的ClassLoader被GC3.java.lang.Class对象没有在任何地方被引用，即无法通过反射访问该类（JVM会始终引用自带的加载器，即Bootstrap Classloader, Extension Classloader, Application Classloader，所以由他们所加载的类在JVM的生命周期中不会被卸载） 参考资料： 1.Groovy的ClassLoader体系2.Java类加载机制3.类的卸载机制]]></content>
+    <content type="text"><![CDATA[实习的时候用到了Groovy脚本，顺便学习了一下Groovy的类加载器以及类加载机制。 一、RootLoader管理了Groovy的classpath，负责加载Groovy及其依赖的第三方库中的类，它不是使用双亲委派模型。RootLoader先尝试加载类，如果加载不到，再委派给parent加载，所以即使parent已经载入了GroovyStarter，RootLoader还会再加载一次。为什么要这样做的？道理很简单。在前文中，我一再提醒大家，Java的classpath中只包含了Groovy的jar包，而不包含Groovy依赖的第三方jar包，而Groovy的classpath则包含了Groovy以及其依赖的所有第三方jar包。如果RootLoader使用双亲委派模型，那么Groovy的jar包中的类就会由System ClassLoader加载，当解析Groovy的类时，需要加载第三方的jar包，这时System ClassLoader并不知道从哪里加载，导致找不到类。因此RootLoader并没有使用双亲委派模型。 可能你有疑问：为什么不把这些jar包都加入Java的classpath中？这样不就不会有这个问题了吗？确实如此，但是Groovy可以通过多种方式更灵活的往自己的classpath中添加路径（你甚至可以通过代码往RootLoader的classpath中添加路径），而Java的classpath只能通过命令行添加，因此就有了RootLoader这样的设计。 二、GroovyClassLoader：负责在运行时编译groovy源代码为Class的工作，从而使Groovy实现了将groovy源代码动态加载为Class的功能。 三、GroovyClassLoader.InnerLoader：Groovy脚本类的直接ClassLoader，它将加载工作委派给GroovyClassLoader，它的存在是为了支持不同源码里使用相同的类名，以及加载的类能顺利被GC。由于一个ClassLoader对于同一个名字的类只能加载一次，如果都由GroovyClassLoader加载，那么当一个脚本里定义了C这个类之后，另外一个脚本再定义一个C类的话，GroovyClassLoader就无法加载了。由于当一个类的ClassLoader被GC之后，这个类才能被GC2，如果由GroovyClassLoader加载所有的类，那么只有当GroovyClassLoader被GC了，所有这些类才能被GC，而如果用InnerLoader的话，由于编译完源代码之后，已经没有对它的外部引用，除了它加载的类，所以只要它加载的类没有被引用之后，它以及它加载的类就都可以被GC了。 四、JVM的类卸载机制3顺便回顾一下JVM的类卸载机制。在类加载器的内部实现中，用一个Java集合来存放所加载类的引用。另一方面，一个Class对象总是会引用它的类加载器。调用Class对象的getClassLoader()方法，就能获得它的类加载器。由此可见，Class实例和加载它的加载器之间为双向关联关系。因此，JVM中的Class满足以下三个条件时才能被GC回收，即卸载：1.类的所有实例都被GC2.加载该类的ClassLoader被GC3.java.lang.Class对象没有在任何地方被引用，即无法通过反射访问该类（JVM会始终引用自带的加载器，即Bootstrap Classloader, Extension Classloader, Application Classloader，所以由他们所加载的类在JVM的生命周期中不会被卸载） 参考资料： 1.Groovy的ClassLoader体系2.Java类加载机制3.类的卸载机制]]></content>
       <categories>
         <category>Java</category>
       </categories>
